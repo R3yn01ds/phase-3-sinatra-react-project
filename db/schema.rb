@@ -10,35 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_21_031428) do
+ActiveRecord::Schema.define(version: 2022_08_26_214234) do
 
-  create_table "avatars", force: :cascade do |t|
-    t.string "image_url"
+  create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "meta"
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "title"
     t.string "description"
-  end
-
-  create_table "levels", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "monsters", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.integer "level_id"
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.integer "level_id"
-    t.string "question"
-    t.string "answer"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "avatar_id"
-    t.integer "level_id"
+    t.string "due_date"
+    t.integer "effort"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
